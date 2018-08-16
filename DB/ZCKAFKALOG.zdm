@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamodel>
+	<attr name="Version">1</attr>
+	<attr name="PreviewDBType">MYSQL</attr>
+	<attr name="ModelName">日志</attr>
+	<attr name="LastModified">2018-03-09 11:23:41</attr>
+	<category>
+		<attr name="Name">新建分类</attr>
+		<attr name="ID">c1</attr>
+		<attr name="Order">0</attr>
+		<tables>
+			<table>
+				<attr name="Name">日志表</attr>
+				<attr name="Code">ZCKafkaLog</attr>
+				<attr name="ID">Table-60265e19-e135-407c-9e47-a763c7174e21</attr>
+				<attr name="isGenerateCRUD">false</attr>
+				<attr name="isGenerateCRUDPriv">false</attr>
+				<attr name="isI18NSupport">false</attr>
+				<attr name="Order">1</attr>
+				<indexes />
+				<columns>
+					<column>
+						<attr name="Name">ID</attr>
+						<attr name="Code">ID</attr>
+						<attr name="ID">Column-30f2b355-cac4-49c2-8623-3440bfef8821</attr>
+						<attr name="MaxIDType">ZCKafkaLogID</attr>
+						<attr name="DataType">7</attr>
+						<attr name="ListColumnWidth">0</attr>
+						<attr name="isMandatory">true</attr>
+						<attr name="isMaxID">false</attr>
+						<attr name="isPrimaryKey">true</attr>
+						<attr name="isSearchCondition">false</attr>
+						<attr name="isVisiableInForm">false</attr>
+						<attr name="isVisiableInList">false</attr>
+						<attr name="Length">0</attr>
+						<attr name="Precision">0</attr>
+					</column>
+					<column>
+						<attr name="Name">IP地址</attr>
+						<attr name="Code">IP</attr>
+						<attr name="ID">Column-36f54530-1326-4c32-89cd-455c0bec23ea</attr>
+						<attr name="Verify">
+							<![CDATA[]]>
+						</attr>
+						<attr name="DataType">1</attr>
+						<attr name="ListColumnWidth">0</attr>
+						<attr name="isMandatory">false</attr>
+						<attr name="isMaxID">false</attr>
+						<attr name="isPrimaryKey">false</attr>
+						<attr name="isSearchCondition">false</attr>
+						<attr name="isVisiableInForm">false</attr>
+						<attr name="isVisiableInList">false</attr>
+						<attr name="Length">50</attr>
+						<attr name="Precision">0</attr>
+					</column>
+					<column>
+						<attr name="Name">操作系统</attr>
+						<attr name="Code">OS</attr>
+						<attr name="ID">Column-936cef1d-a83f-45ea-b5c0-015757cbab80</attr>
+						<attr name="Verify">
+							<![CDATA[]]>
+						</attr>
+						<attr name="DataType">1</attr>
+						<attr name="ListColumnWidth">0</attr>
+						<attr name="isMandatory">false</attr>
+						<attr name="isMaxID">false</attr>
+						<attr name="isPrimaryKey">false</attr>
+						<attr name="isSearchCondition">false</attr>
+						<attr name="isVisiableInForm">false</attr>
+						<attr name="isVisiableInList">false</attr>
+						<attr name="Length">50</attr>
+						<attr name="Precision">0</attr>
+					</column>
+					<column>
+						<attr name="Name">浏览器版本</attr>
+						<attr name="Code">BrowserEdition</attr>
+						<attr name="ID">Column-4fbae5cf-23f4-432b-976e-2ca79c704308</attr>
+						<attr name="Verify">
+							<![CDATA[]]>
+						</attr>
+						<attr name="DataType">1</attr>
+						<attr name="ListColumnWidth">0</attr>
+						<attr name="isMandatory">false</attr>
+						<attr name="isMaxID">false</attr>
+						<attr name="isPrimaryKey">false</attr>
+						<attr name="isSearchCondition">false</attr>
+						<attr name="isVisiableInForm">false</attr>
+						<attr name="isVisiableInList">false</attr>
+						<attr name="Length">50</attr>
+						<attr name="Precision">0</attr>
+					</column>
+					<column>
+						<attr name="Name">停留时间</attr>
+						<attr name="Code">ResidenceTime</attr>
+						<attr name="ID">Column-e5931903-dca3-4b2a-82a2-f06493473dd6</attr>
+						<attr name="Verify">
+							<![CDATA[]]>
+						</attr>
+						<attr name="DataType">7</attr>
+						<attr name="ListColumnWidth">0</attr>
+						<attr name="isMandatory">false</attr>
+						<attr name="isMaxID">false</attr>
+						<attr name="isPrimaryKey">false</attr>
+						<attr name="isSearchCondition">false</attr>
+						<attr name="isVisiableInForm">false</attr>
+						<attr name="isVisiableInList">false</attr>
+						<attr name="Length">0</attr>
+						<attr name="Precision">0</attr>
+					</column>
+					<column>
+						<attr name="Name">进入时间</attr>
+						<attr name="Code">StartTime</attr>
+						<attr name="ID">Column-4f841c9f-0230-425b-9df4-725374a287ca</attr>
+						<attr name="Verify">
+							<![CDATA[]]>
+						</attr>
+						<attr name="DataType">7</attr>
+						<attr name="ListColumnWidth">0</attr>
+						<attr name="isMandatory">false</attr>
+						<attr name="isMaxID">false</attr>
+						<attr name="isPrimaryKey">false</attr>
+						<attr name="isSearchCondition">false</attr>
+						<attr name="isVisiableInForm">false</attr>
+						<attr name="isVisiableInList">false</attr>
+						<attr name="Length">0</attr>
+						<attr name="Precision">0</attr>
+					</column>
+					<column>
+						<attr name="Name">离开时间</attr>
+						<attr name="Code">EndTime</attr>
+						<attr name="ID">Column-cd210789-21d3-4e89-9c60-30604f058c43</attr>
+						<attr name="Verify">
+							<![CDATA[]]>
+						</attr>
+						<attr name="DataType">7</attr>
+						<attr name="ListColumnWidth">0</attr>
+						<attr name="isMandatory">false</attr>
+						<attr name="isMaxID">false</attr>
+						<attr name="isPrimaryKey">false</attr>
+						<attr name="isSearchCondition">false</attr>
+						<attr name="isVisiableInForm">false</attr>
+						<attr name="isVisiableInList">false</attr>
+						<attr name="Length">0</attr>
+						<attr name="Precision">0</attr>
+					</column>
+					<column>
+						<attr name="Name">用户代理</attr>
+						<attr name="Code">UserAgent</attr>
+						<attr name="ID">Column-4c2f257f-c93e-455f-bcdb-4eb55fe51e77</attr>
+						<attr name="Verify">
+							<![CDATA[]]>
+						</attr>
+						<attr name="DataType">1</attr>
+						<attr name="ListColumnWidth">0</attr>
+						<attr name="isMandatory">false</attr>
+						<attr name="isMaxID">false</attr>
+						<attr name="isPrimaryKey">false</attr>
+						<attr name="isSearchCondition">false</attr>
+						<attr name="isVisiableInForm">false</attr>
+						<attr name="isVisiableInList">false</attr>
+						<attr name="Length">200</attr>
+						<attr name="Precision">0</attr>
+					</column>
+				</columns>
+			</table>
+		</tables>
+	</category>
+	<relations />
+	<updateSQLs />
+</datamodel>

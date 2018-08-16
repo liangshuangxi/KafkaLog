@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>logList</title>
+<!-- 引入bootstrap样式 -->
+<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+<!-- 引入bootstrap-table样式 -->
+<link type="text/css" href="css/bootstrap-table.min.css"
+	rel="stylesheet">
+<script type="text/javascript" src="js/jquery-2.2.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- bootstrap-table.min.js -->
+<script type="text/javascript" src="js/bootstrap-table.min.js"></script>
+<!-- 引入中文语言包 -->
+<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="js/log.js"></script>
+<style>
+table {
+	table-layout: fixed;
+}
+#logTable tr {
+	height ="30px";
+	
+}
+#logTable td {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+</style>
+<script type="text/javascript" src="http://pv.sohu.com/cityjson"></script>       
+<script>
+Date.prototype.toLocaleString = function() {
+	return this.getFullYear() + "-" + (this.getMonth() + 1) + "-"
+			+ this.getDate() + " " + this.getHours() + ":"
+			+ this.getMinutes() + ":" + this.getSeconds();
+};
+	var LogColumns = [
+			{
+				field : 'id',
+				title : 'ID',
+				align : 'center',
+				valign : 'middle',
+				width : '6%'
+			},
+			{
+				field : 'ip',
+				title : 'IP地址',
+				align : 'center',
+				valign : 'middle',
+				width : '12%'
+			},
+			{
+				field : 'os',
+				title : '操作系统',
+				align : 'center',
+				valign : 'middle',
+				width : '12%'
+			},{
+				field : 'residencetime',
+				title : '停留时间(ms)',
+				align : 'center',
+				valign : 'middle',
+				width : '7%'
+			},{
+				field : 'starttime',
+				title : '进入页面时间',
+				align : 'center',
+				valign : 'middle',
+				width : '12%',
+				formatter : function(value, row, index) {
+					return new Date(Number(value)).toLocaleString();
+				}
+			},
+			{
+				field : 'endtime',
+				title : '关闭页面时间',
+				align : 'center',
+				valign : 'middle',
+				width : '12%',
+				formatter : function(value, row, index) {
+					return new Date(Number(value)).toLocaleString();
+				}
+			},
+			{
+				field : 'browser',
+				title : '浏览器',
+				align : 'center',
+				valign : 'middle',
+				width : '7%'
+			},
+			 {
+				field : 'useragent',
+				title : "UserAgent",
+				align : 'center',
+				valign : 'middle',
+				width : '10%',
+				formatter : function(value, row, index) {
+					return '<span title=' + value + '>' + value + '</span>'
+				}
+			} ];
+	var logListUrl = "http://192.168.1.40:8080/api/kafka/log/logList";
+	var bootstrapConfig = {
+		pagination : true,
+		url : logListUrl,
+		sidePagination : 'server',
+		sortName : 'id', // 要排序的字段
+		sortOrder : 'desc', // 排序规则
+		columns : LogColumns
+	};
+	var startTime=new Date().getTime();
+	$(function(){
+		debugger
+		window.onbeforeunload = function(event) {
+			addLog();
+			return confirm("确定离开此页面吗？"); 
+		}
+		initBootstrapTable($("#logTable"), "", bootstrapConfig);
+	});
+	function addLog() {
+		var endTime= new Date().getTime();
+		var sendParams={
+			        OS:getOS(),
+			        Browser:getBrowserEdition(),
+			        ResidenceTime:endTime-startTime,
+			        StartTime:startTime,
+			        EndTime:endTime,
+			        UserAgent:navigator.userAgent,
+			        IP:returnCitySN.cip
+			};
+		 $.post("http://192.168.1.40:8080/kafka/send",{
+			 logs:JSON.stringify(sendParams)},
+			 function(result){
+			  });
+	}
+</script>
+</head>
+<body>
+	<div style="margin-top: 10px;">
+	<table width="100%" cellpadding="2" cellspacing="0" id="logTable">
+	</table>
+	</div>
+	
+</body>
+</html>
